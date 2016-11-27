@@ -28,8 +28,6 @@ import io.github.lal872k.pbib.ui.comps.DateInput;
 import io.github.lal872k.pbib.ui.comps.TextInput;
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -50,16 +48,7 @@ public class SourceLibraryReader {
      * @throws IOException 
      */
     public static SourceLibrary loadSourceLibrary() throws ParsingException, IOException{
-        String decodedPath;
-        
-        try {
-            String path = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-            decodedPath = URLDecoder.decode(path, "UTF-8");
-        } catch (UnsupportedEncodingException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        File file = new File(new File(decodedPath).getParent()+"/sources.xml");
+        File file = new File(Main.class.getResource("/sources.xml").getFile());
         return loadSourceLibrary(file);
     }
     

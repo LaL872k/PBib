@@ -376,8 +376,8 @@ public final class SourceManagerFrame extends MakeFrame{
     
     static {
         try {
-            FIELD_HINT = ImageIO.read(SourceManagerFrame.class.getResource("/lal/pbib/res/fieldhint.png"));
-            COPY_TO_CLIPBOARD = ImageIO.read(SourceManagerFrame.class.getResource("/lal/pbib/res/copytoclipboard.png"));
+            FIELD_HINT = ImageIO.read(SourceManagerFrame.class.getResource("/fieldhint.png"));
+            COPY_TO_CLIPBOARD = ImageIO.read(SourceManagerFrame.class.getResource("/copytoclipboard.png"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } 
