@@ -7,6 +7,10 @@
     <packaging>jar</packaging>
     <repositories>
         <repository>
+            <id>my-alternate-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </repository>
+        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -17,10 +21,11 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.16-beta1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/xom/xom -->
         <dependency>
-            <groupId>nu.xom.www</groupId>
+            <groupId>xom</groupId>
             <artifactId>xom</artifactId>
-            <version>1.0</version>
+            <version>1.2.7.redhat-4</version>
         </dependency>
         <dependency>
             <groupId>com.github.LaL872k</groupId>
