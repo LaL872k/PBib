@@ -78,6 +78,10 @@ public final class SourceManagerFrame extends MakeFrame{
     private JPanel addCitations;
     private JButton addBibliography, addFootnotes;
     
+    private JPanel devDetails;
+    private JLabel devName;
+    private static final String DEV_NAME = "L. Arthur Lewis II 2016";
+    
     // other stuff
     private final ArrayList<Citation> cites;
     private final SourceLibrary library;
@@ -87,7 +91,7 @@ public final class SourceManagerFrame extends MakeFrame{
         cites = new ArrayList();
         this.library = library;
         openFrame();
-        showLibraryInfo();
+        // showLibraryInfo();
         BibConsole.getCommandHandler().addCommand(new Command("libinfo", (console, arguments) -> {
             console.println("Showing the library info screen...");
             showLibraryInfo();
@@ -312,6 +316,15 @@ public final class SourceManagerFrame extends MakeFrame{
         addCitations.add(Box.createRigidArea(new Dimension(5, 0)));
         addCitations.add(addFootnotes, BorderLayout.LINE_END);
         
+        devDetails = new JPanel();
+        devDetails.setLayout(new BoxLayout(devDetails, BoxLayout.X_AXIS));
+        
+        devName = new JLabel();
+        devName.setText(DEV_NAME);
+        
+        devDetails.add(Box.createHorizontalGlue());
+        devDetails.add(devName, BorderLayout.EAST);
+        
         JPanel addPanel;
         
         addPanel = MakeFrame.addComponent(fileSelection, 0, 0, 1, 1, 1, 0, bag);
@@ -328,6 +341,8 @@ public final class SourceManagerFrame extends MakeFrame{
         addPanel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), "Add Citations to File"));
         container.add(addPanel, bag);
+        
+        container.add(MakeFrame.addComponent(devDetails, 0, 3, 2, 1, 1, 0, bag), bag);
     }
     
     @Override
@@ -353,6 +368,9 @@ public final class SourceManagerFrame extends MakeFrame{
         
         addBibliography.setFont(UNIVERSAL_FONT);
         addFootnotes.setFont(UNIVERSAL_FONT);
+        
+        devName.setFont(UNIVERSAL_FONT);
+        devName.setFont(devName.getFont().deriveFont(Font.ITALIC));
     }
     
     public void updateSourcesList(){
