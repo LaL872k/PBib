@@ -91,7 +91,6 @@ public final class SourceManagerFrame extends MakeFrame{
         cites = new ArrayList();
         this.library = library;
         openFrame();
-        // showLibraryInfo();
         BibConsole.getCommandHandler().addCommand(new Command("libinfo", (console, arguments) -> {
             console.println("Showing the library info screen...");
             showLibraryInfo();
